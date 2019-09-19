@@ -79,24 +79,26 @@ function handleSubmit(event) {
     data.append(`password`, password);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('post', 'http://127.0.0.1:8000/api/user/login', true);
+    xhr.open('post', 'http://127.0.0.1:8000/api/user/login', false);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.send(urlencodeFormData(data));
     xhr.onload = function () {
         // do something to response
         //console.log(this.responseText);
-        const jsResponse = JSON.parse(this.responseText);
-        //alert(`The Auth Token is ${jsResponse.token}`);
-        cookie.save(`HNToken`, jsResponse.token, {path: `/`});
-        //console.log(cookie.load(`HNToken`));
     };
+
+
+    const jsResponse = JSON.parse(xhr.responseText);
+    //alert(`The Auth Token is ${jsResponse.token}`);
+    cookie.save(`HNToken`, jsResponse.token, {path: `/feed`});
     xhr.onerror = function () {
         alert("Please Try Again");
     };
 
     event.preventDefault();
-    window.location.href = "/feed/-1";
+
+    window.location.href = "http://127.0.0.1:3000/feed/-1"
 }
 
 

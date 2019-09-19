@@ -221,7 +221,7 @@ class Feed extends Component {
                 Logout
             </Button>
 
-            {(!this.state.comments) ? "Please wait while the components load" : this.state.comments['comments'].map(e =>
+            {(this.state.comments === undefined || this.state.comments.comments === undefined) ? "Please wait while the components load" : this.state.comments['comments'].map(e =>
                 <CommentPaper text={e.text} username={e.username} replyto={e.id}/>)}
         </Paper>;
     }

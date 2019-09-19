@@ -89,8 +89,10 @@ function handleSubmit(event) {
         //alert(`The Auth Token is ${jsResponse.token}`);
         console.log(jsResponse.token);
         if (jsResponse.status === 'success') {
-            cookie.save(`HNToken`, jsResponse.token, {path: `/`});
-            window.location.href = "http://127.0.0.1:3000/feed/-1";
+            cookie.save(`HNToken`, jsResponse.token, {path: `/`, maxAge: 60 * 60});
+            console.log(cookie.load(`HNToken`));
+            window.location.href = "http://localhost:3000/feed/-1";
+            //this.props.history.push('/feed/-1');
         } else alert(`Wrong Credentials`);
         //console.log(this.responseText);
     };

@@ -79,26 +79,32 @@ function handleSubmit(event) {
     data.append(`password`, password);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('post', 'http://127.0.0.1:8000/api/user/login', false);
+    xhr.open('post', 'http://127.0.0.1:8000/api/user/login', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.send(urlencodeFormData(data));
     xhr.onload = function () {
         // do something to response
+        const jsResponse = JSON.parse(xhr.responseText);
+        //alert(`The Auth Token is ${jsResponse.token}`);
+        console.log(jsResponse.token);
+        if (jsResponse.status === 'success') {
+            cookie.save(`HNToken`, jsResponse.token, {path: `/`});
+            window.location.href = "http://127.0.0.1:3000/feed/-1";
+        } else alert(`Wrong Credentials`);
         //console.log(this.responseText);
     };
 
-
-    const jsResponse = JSON.parse(xhr.responseText);
-    //alert(`The Auth Token is ${jsResponse.token}`);
-    cookie.save(`HNToken`, jsResponse.token, {path: `/feed`});
     xhr.onerror = function () {
         alert("Please Try Again");
     };
 
+
     event.preventDefault();
 
-    window.location.href = "http://127.0.0.1:3000/feed/-1"
+    //if(jsResponse.status==='success')
+    //  window.location.href = "http://127.0.0.1:3000/feed/-1";
+    //else alert(`Wrong Credentials`);
 }
 
 

@@ -50,14 +50,6 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function handleRegister(event) {
-    console.log(`Register Called`);
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    console.log(username);
-    console.log(password);
-    event.preventDefault();
-}
 
 function urlencodeFormData(fd) {
     var s = '';
@@ -104,7 +96,41 @@ function handleSubmit(event) {
     };
 
     event.preventDefault();
+    window.location.href = "/feed/-1";
 }
+
+
+function handleRegister(event) {
+    console.log(`Register Called`);
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    console.log(username);
+    console.log(password);
+    // Login
+
+    var data = new FormData();
+    data.append(`username`, username);
+    data.append(`password`, password);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', 'http://127.0.0.1:8000/api/user/register', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.send(urlencodeFormData(data));
+    xhr.onload = function () {
+        // do something to response
+        //console.log(this.responseText);
+        if (JSON.parse(xhr.responseText).status === "success") alert("Registration Successful");
+        else alert(JSON.parse(xhr.responseText).message);
+        //console.log(cookie.load(`HNToken`));
+    };
+    xhr.onerror = function () {
+        alert("Please Try Again");
+    };
+
+    event.preventDefault();
+}
+
 
 export default function SignIn() {
     const classes = useStyles();

@@ -119,7 +119,7 @@ class CommentPaper extends Component {
                 {`By ${this.props.username}`}
                 <a href={`/feed/${this.props.replyto}`}>
                     <Button variant="contained">
-                        See Replies or Reply Here to in a Nested Thread
+                        Expand Thread
                     </Button>
                 </a>
                 <Button variant="contained" onClick={this.upvote}>
@@ -227,7 +227,7 @@ class Feed extends Component {
             <form onSubmit={this.commentSubmit}>
                 <TextField id={"postfield"} label="What's on your mind?" onChange={this.handleChange}
                            value={this.state.text} fullWidth/>
-                <Button label="Submit"
+                <Button variant={"contained"} label="Submit"
                         type="submit">{(this.state.replyto === "-1") ? "Post a new Thread" : "Post to thread"}</Button>
             </form>
 

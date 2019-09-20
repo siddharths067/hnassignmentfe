@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1170b733-0061-4ccc-831c-9c1e82990425" name="Default Changelist" comment="Styled the Post Field">
+    <list default="true" id="1170b733-0061-4ccc-831c-9c1e82990425" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignIn.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,7 @@
       <workItem from="1568866621652" duration="3633000" />
       <workItem from="1568871389760" duration="20765000" />
       <workItem from="1568905966032" duration="5591000" />
-      <workItem from="1568951236847" duration="2668000" />
+      <workItem from="1568951236847" duration="3393000" />
     </task>
     <task id="LOCAL-00001" summary="Logout Functionality added">
       <created>1568895715566</created>
@@ -99,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568910419536</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Styled the Post Field">
+      <created>1568953937420</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1568953937420</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +138,8 @@
     <MESSAGE value="Logout Functionality added" />
     <MESSAGE value="Async Login" />
     <MESSAGE value="Fixed Login Bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Login Bug" />
+    <MESSAGE value="Styled the Post Field" />
+    <option name="LAST_COMMIT_MESSAGE" value="Styled the Post Field" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

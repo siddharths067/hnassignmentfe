@@ -9,6 +9,10 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 
+String.prototype.capitalize = function () {
+    return this.toLowerCase().charAt(0).toUpperCase() + this.slice(1);
+}
+
 function urlencodeFormData(fd) {
     var s = '';
 
@@ -116,18 +120,20 @@ class CommentPaper extends Component {
         return <Paper>
             <h2> {this.props.text}</h2>
             <Paper>
-                {`By ${this.props.username}`}
-                <a href={`/feed/${this.props.replyto}`}>
-                    <Button variant="contained">
-                        Expand Thread
+                {`By ${this.props.username.capitalize()}`}
+                <Paper>
+                    <a href={`/feed/${this.props.replyto}`}>
+                        <Button variant="contained">
+                            Expand Thread
+                        </Button>
+                    </a>
+                    <Button variant="contained" onClick={this.upvote}>
+                        UPVOTE {(this.state.upvotes) ? this.state.upvotes : ""}
                     </Button>
-                </a>
-                <Button variant="contained" onClick={this.upvote}>
-                    UPVOTE {(this.state.upvotes) ? this.state.upvotes : ""}
-                </Button>
-                <Button variant="contained" onClick={this.downvote}>
-                    DOWNVOTE {(this.state.downvotes) ? this.state.downvotes : ""}
-                </Button>
+                    <Button variant="contained" onClick={this.downvote}>
+                        DOWNVOTE {(this.state.downvotes) ? this.state.downvotes : ""}
+                    </Button>
+                </Paper>
             </Paper>
         </Paper>;
     }

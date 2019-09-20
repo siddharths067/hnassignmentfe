@@ -75,7 +75,7 @@
       <workItem from="1568866621652" duration="3633000" />
       <workItem from="1568871389760" duration="20765000" />
       <workItem from="1568905966032" duration="5591000" />
-      <workItem from="1568951236847" duration="3393000" />
+      <workItem from="1568951236847" duration="4160000" />
     </task>
     <task id="LOCAL-00001" summary="Logout Functionality added">
       <created>1568895715566</created>
@@ -105,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568953937420</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed to Expand Thread">
+      <created>1568955611229</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568955611229</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +146,8 @@
     <MESSAGE value="Async Login" />
     <MESSAGE value="Fixed Login Bug" />
     <MESSAGE value="Styled the Post Field" />
-    <option name="LAST_COMMIT_MESSAGE" value="Styled the Post Field" />
+    <MESSAGE value="Changed to Expand Thread" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed to Expand Thread" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

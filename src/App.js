@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import SignIn from "./SignIn";
 import cookie from 'react-cookies'
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 
 function urlencodeFormData(fd) {
@@ -49,7 +50,7 @@ class CommentPaper extends Component {
         var data = new FormData();
         data.append(`id`, this.props.replyto);
         data.append(`HNToken`, cookie.load(`HNToken`));
-        console.log(cookie.load(`HNToken`));
+        //console.log(cookie.load(`HNToken`));
         var xhr = new XMLHttpRequest();
         xhr.open('post', 'http://127.0.0.1:8000/api/comment/vote/get', false);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -74,7 +75,7 @@ class CommentPaper extends Component {
         data.append(`id`, this.props.replyto);
         data.append('type', 'upvote');
         data.append(`HNToken`, cookie.load(`HNToken`));
-        console.log(cookie.load(`HNToken`));
+        // console.log(cookie.load(`HNToken`));
         var xhr = new XMLHttpRequest();
         xhr.open('post', 'http://127.0.0.1:8000/api/comment/vote', false);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -95,7 +96,7 @@ class CommentPaper extends Component {
         data.append(`id`, this.props.replyto);
         data.append('type', 'downvote');
         data.append(`HNToken`, cookie.load(`HNToken`));
-        console.log(cookie.load(`HNToken`));
+        //console.log(cookie.load(`HNToken`));
         var xhr = new XMLHttpRequest();
         xhr.open('post', 'http://127.0.0.1:8000/api/comment/vote', false);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -138,24 +139,22 @@ class Feed extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            replyto: this.props.match.params.replyto
+            replyto: this.props.match.params.replyto,
+            text: ""
         };
 
+        this.handleChange = this.handleChange.bind(this);
         this.commentSubmit = this.commentSubmit.bind(this);
         this.softRefresh = this.softRefresh.bind(this);
         this.logout = this.logout.bind(this);
     }
 
     softRefresh() {
-        console.log(10000);
-        this.setState({
-            comments: 10000
-        });
 
         var data = new FormData();
         data.append(`replyto`, this.props.match.params.replyto);
         data.append(`HNToken`, cookie.load(`HNToken`));
-        console.log(cookie.load(`HNToken`));
+        //console.log(cookie.load(`HNToken`));
         var xhr = new XMLHttpRequest();
         xhr.open('post', 'http://127.0.0.1:8000/api/comment/get', false);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -177,7 +176,7 @@ class Feed extends Component {
 
         event.preventDefault();
         var data = new FormData();
-        data.append(`text`, event.target.text.value);
+        data.append(`text`, this.state.text);
         data.append('replyto', this.props.match.params.replyto);
         data.append(`HNToken`, cookie.load(`HNToken`));
         var xhr = new XMLHttpRequest();
@@ -191,6 +190,10 @@ class Feed extends Component {
 
         this.softRefresh();
 
+        this.setState({
+            text: ""
+        });
+
     }
 
     logout() {
@@ -201,7 +204,7 @@ class Feed extends Component {
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         xhr.send(urlencodeFormData(data));
-        console.log(xhr.responseText);
+        //console.log(xhr.responseText);
         xhr.onerror = function () {
             console.log(`Error has occurred`);
         };
@@ -209,14 +212,26 @@ class Feed extends Component {
         window.location.href = "/";
     }
 
+    handleChange(event) {
+        this.setState({text: event.target.value});
+    }
+
     render() {
         return <Paper>
-            <form onSubmit={this.commentSubmit}>
+            {/*<form onSubmit={this.commentSubmit}>
                 <input type={"text"} name={"text"} id={"text"}/>
                 <input type={"submit"} name={"submit"}
                        value={(this.state.replyto === "-1") ? "POST a new Thread" : "Reply to this Top Comment"}/>
+            </form>*/}
+
+            <form onSubmit={this.commentSubmit}>
+                <TextField id={"postfield"} label="What's on your mind?" onChange={this.handleChange}
+                           value={this.state.text} fullWidth/>
+                <Button label="Submit"
+                        type="submit">{(this.state.replyto === "-1") ? "Post a new Thread" : "Post to thread"}</Button>
             </form>
 
+            <Button variant={"contained"} onClick={this.props.history.goBack}> Back </Button>
             <Button variant="contained" onClick={this.logout}>
                 Logout
             </Button>

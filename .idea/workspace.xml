@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1170b733-0061-4ccc-831c-9c1e82990425" name="Default Changelist" comment="">
+    <list default="true" id="1170b733-0061-4ccc-831c-9c1e82990425" name="Default Changelist" comment="Styled the Post Field">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignIn.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,7 +75,8 @@
       <updated>1568866620297</updated>
       <workItem from="1568866621652" duration="3633000" />
       <workItem from="1568871389760" duration="20765000" />
-      <workItem from="1568905966032" duration="4364000" />
+      <workItem from="1568905966032" duration="5591000" />
+      <workItem from="1568951236847" duration="2668000" />
     </task>
     <task id="LOCAL-00001" summary="Logout Functionality added">
       <created>1568895715566</created>
@@ -90,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568907577001</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed Login Bug">
+      <created>1568910419536</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568910419536</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +131,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Logout Functionality added" />
     <MESSAGE value="Async Login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Async Login" />
+    <MESSAGE value="Fixed Login Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Login Bug" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
